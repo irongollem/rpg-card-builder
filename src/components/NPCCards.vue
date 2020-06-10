@@ -1,6 +1,10 @@
 <template>
   <section class="card-wrapper">
-      <c-npc v-for="npc in npcs.slice().reverse()" :key="npc.name" :npc="npc" />
+      <c-npc
+        v-for="npc in npcs.slice().reverse()"
+        :key="npc.name"
+        class="npc"
+        :npc="npc" />
   </section>
 </template>
 
@@ -21,9 +25,19 @@ export default class NPCCards extends Vue {
 }
 </script>
 
-<style scoped>
+<style lang='scss' scoped>
 .card-wrapper {
     height: 100vh;
     overflow-y: scroll;
+}
+
+@media print {
+    .card-wrapper {
+        overflow: visible;
+        height: auto;
+    }
+    .npc:nth-child(3n) {
+        page-break-after: always;
+    }
 }
 </style>

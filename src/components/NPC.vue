@@ -2,8 +2,7 @@
 <article class="npc">
     <!-- Battle side -->
     <div>
-        Front
-        <section class="npc__card">
+        <section :id="`front_${npc.name}`" class="npc__card">
             <img src="../assets/grunge.svg" class="splotch"/>
             <header class="npc__card__header">{{npc.name || 'Unnamed'}}</header>
             <section class="npc__card__properties">
@@ -51,14 +50,14 @@
             </section>
             <footer></footer>
         </section> 
+        <button class="noprint" type="button" @click="saveCard('front', npc.name)">save</button>
     </div>
 
     <div class="divider"></div>
 
     <!-- NPC side -->
     <div>
-        Back
-        <section class="npc__card" :style="{'background-image': `url('${npc.img}')`}">
+        <section :id="`back_${npc.name}`" class="npc__card" :style="{'background-image': `url('${npc.img}')`}">
             <img src="../assets/grunge.svg" class="splotch"/>
             <header  class="npc__card__header">
                 {{npc.name || 'Unnamed'}}
@@ -68,14 +67,17 @@
             </section>
             <footer></footer>
         </section>
+        <button class="noprint" type="button" @click="saveCard('back', npc.name)">save</button>
     </div>
 </article>
 </template>
 
 <script lang="ts">
+import domtoimage from 'dom-to-image'
+import { saveAs } from 'file-saver'
 import { Vue, Component , Prop } from 'vue-property-decorator'
-import { Npc } from '../store/types'
 import Characteristic from '@/components/characteristic.vue'
+import { Npc } from '@/store/types'
 
 
 @Component({
@@ -89,6 +91,12 @@ export default class NPC extends Vue {
     get skills (): string {
         if (!this.npc.skills) return ''
         return this.npc.skills.join(', ')
+    }
+
+    async saveCard(face: string, name: string): Promise<void> {
+        const el = document.getElementById(`${face}_${name}`)
+        const blob = await domtoimage.toBlob(el, { bgcolor: 'rgba(255,255,255,0)' })
+        saveAs(blob, `${face}_face_${name}.png`)
     }
 }
 </script>
@@ -104,11 +112,6 @@ $cardBorderWidth: 2mm;
     align-items: flex-end;
     height: 95mm;
     padding: 0 1em;
-    &:nth-child(3) {
-        @media print {
-            page-break-after: always;
-        }
-    }
     &__card {
         position: relative;
         overflow: hidden;
