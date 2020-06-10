@@ -16,7 +16,7 @@ export default class NPCForm extends Vue {
 
 <style lang="scss">
 .chevron {
-    font-family: 'Bolton';
+    font-family: Bolton;
     font-size: 10pt;
     background-color: #f5d3c8;
     background-image: linear-gradient(315deg, #f5d3c8 0%, #c08552 74%);

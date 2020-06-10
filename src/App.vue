@@ -9,7 +9,7 @@
 
 <style lang="scss">
 #app {
-  font-family: 'Bolton', Avenir, Helvetica, Arial, sans-serif;
+  font-family: Bolton, Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
@@ -32,13 +32,13 @@
 }
 
 @font-face {
-  font-family: "Bolton";
-  src: url("~@/assets/fonts/Bolton.ttf") format("font-truetype");
+  font-family: Bolton;
+  src: url(~@/assets/fonts/Bolton.ttf);
 }
 
 @font-face {
-  font-family: "JOURNAL";
-  src: url("~@/assets/fonts/JOURNAL.TTF") format("font-truetype");
+  font-family: Journal;
+  src: url(~@/assets/fonts/JOURNAL.TTF);
 }
 
 @media print { 

@@ -190,7 +190,7 @@ $cardBorderWidth: 2mm;
             }
             & section {
                 opacity: .8;
-                font-family: JOURNAL;
+                font-family: Journal;
                 background-color: #d2d8d6;
                 background-image: linear-gradient(315deg, #d2d8d6 0%, #dce8e0 74%);
                 -moz-box-shadow:    inset -.1mm -.1mm 1mm #000000;
