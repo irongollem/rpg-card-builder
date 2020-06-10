@@ -42,6 +42,10 @@
 }
 
 @media print { 
+  #app {
+    background-image: none;
+  }
+  
   @page {
     size: auto;   /* auto is the initial value */
     margin: 0;  /* this affects the margin in the printer settings */

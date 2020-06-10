@@ -75,7 +75,7 @@
 <script lang="ts">
 import { Vue, Component , Prop } from 'vue-property-decorator'
 import { Npc } from '../store/types'
-import Characteristic from '@/components/characteristic'
+import Characteristic from '@/components/characteristic.vue'
 
 
 @Component({
@@ -103,7 +103,6 @@ $cardBorderWidth: 2mm;
     justify-content: space-between;
     align-items: flex-end;
     height: 95mm;
-    border: 1px dashed black;
     padding: 0 1em;
     &:nth-child(3) {
         @media print {
@@ -214,9 +213,13 @@ $cardBorderWidth: 2mm;
     }
 }
 .divider {
-    border-left: 1px dashed black;
     height: 100%;
     margin: 0 1em;
+}
+@media print {
+    .divider {
+    border-left: 1px dashed black;
+    }
 }
 
 .splotch {
