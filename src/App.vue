@@ -33,19 +33,19 @@
 
 @font-face {
   font-family: "Bolton";
-  src: url("assets/fonts/Bolton.ttf") format("ttf");
+  src: url("~@/assets/fonts/Bolton.ttf") format("font-truetype");
 }
 
 @font-face {
   font-family: "JOURNAL";
-  src: url("assets/fonts/JOURNAL.TTF") format("ttf");
+  src: url("~@/assets/fonts/JOURNAL.TTF") format("font-truetype");
 }
 
 @media print { 
   #app {
     background-image: none;
   }
-  
+
   @page {
     size: auto;   /* auto is the initial value */
     margin: 0;  /* this affects the margin in the printer settings */
